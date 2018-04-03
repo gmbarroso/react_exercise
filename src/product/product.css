@@ -1,0 +1,10 @@
+.card {
+    align-items: center;
+    max-width: 300px;
+    height: 400px;
+}
+
+.prodImg {
+    margin-top: 5px;
+    max-width: 200px;
+}
