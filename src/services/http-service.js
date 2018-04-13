@@ -10,8 +10,8 @@ class HttpService {
             // Com o fetch eu to pegando alguma coisa do meu servidor
             // que é o json printado no response
             fetch('http://localhost:3004/product')
-                .then(res => {
-                    resolve(res.json());
+                .then(response => {
+                    resolve(response.json());
                     // reject("You suck!");
                 })
         });

@@ -3,11 +3,13 @@ import logo from './logo.svg';
 import './app.css';
 
 // Components
-import Product from '../product/product.js';
-import Wishlist from '../wishlist/wishlist.js';
+import Product from '../product/product';
+import WishList from '../wishlist/wishlist';
 
 // Services
 import HttpService from '../services/http-service';
+// import DataService from '../services/data-service';
+
 
 // Uma const significa que essa variável não pode ser modificada
 const http = new HttpService();
@@ -21,7 +23,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { products: [] }
+    this.state = { products: [] };
 
     // ES6 Bind functions
     // Toda funçãoq ue eu criar eu preciso dar um bind no constructor para eu ganhar o acesso a ela
@@ -75,14 +77,13 @@ class App extends Component {
             <Product price="4.21" title="Daredevil Action Figure" imgUrl="https://www.actionfiguretoronto.com/wp-content/uploads/2016/09/Daredevil_06.jpg" /> */}
             <div className="col-sm-8">
               <div className="row">
-
                 {/* printando coisas do component de product */}
                 {this.productList()}
               </div>
             </div>
             <div className="col-sm-4">
               {/* printando coisas do compoente de wishlist */}
-              <Wishlist />
+              <WishList />
             </div>
           </div>
         </div>

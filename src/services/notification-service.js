@@ -22,7 +22,7 @@ class NotificationService {
 
     postNotification = (notifName, data) => {
         let obs = observers[notifName];
-        for (var i = 0; i < obs.length; i++){
+        for (var i = 0; i < obs.length; i++) {
             var obj = obs[i];
             obj.callBack(data);
         }
@@ -30,18 +30,6 @@ class NotificationService {
 
     // Observer
     // Vai registrar e o sitema enviará notificações
-    // Adicionando um Observer
-    addObserver = (notifName, observer, callBack) => {
-        let obs = observers[notifName];
-
-        if (!obs) {
-            observers[notifName] = [];
-        }
-
-        let obj = { observer: observer, callBack: callBack };
-        observers[notifName].push(obj);
-    }
-
     removeObserver = (observer, notifName) => {
         var obs = observers[notifName];
 
@@ -54,6 +42,18 @@ class NotificationService {
                 }
             }
         }
+    }
+    
+    // Adicionando um Observer
+    addObserver = (notifName, observer, callBack) => {
+        let obs = observers[notifName];
+
+        if (!obs) {
+            observers[notifName] = [];
+        }
+
+        let obj = { observer: observer, callBack: callBack };
+        observers[notifName].push(obj);
     }
 }
 

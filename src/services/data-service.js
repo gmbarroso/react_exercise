@@ -1,7 +1,9 @@
 
 // Silngleton ES6
-import NotificationService, { NOTIF_WISHLIST_CHANGED } from './notification-service';
+// singleton significa que eu vou ter sempre uma única instância alocada em memória 
+import NotificationService, {NOTIF_WISHLIST_CHANGED} from './notification-service';
 
+// Isso aqui só vai ser criado uma única vez = singleton
 let ns = new NotificationService();
 
 let instance = null;
@@ -26,6 +28,12 @@ class DataService {
         return false;
     }
 
+    addWishListItem = item => {
+        wishList.push(item);
+        //Goofy Calling
+        ns.postNotification(NOTIF_WISHLIST_CHANGED, wishList);
+    }
+
     removeWishListItem = item => {
         for (var i = 0; i < wishList.length; i++) {
             if (wishList[i]._id === item._id) {
@@ -34,12 +42,6 @@ class DataService {
                 break;
             }
         }
-    }
-
-    addWishListItem = item => {
-        wishList.push(item);
-        //Goofy Calling
-        ns.postNotification(NOTIF_WISHLIST_CHANGED, wishList);
     }
 }
 

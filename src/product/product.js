@@ -35,7 +35,7 @@ class Product extends Component {
         if (this.state.onWishList) {
             ds.removeWishListItem(this.props.product);
         } else {
-            ds.addWishListItem(this.props.Product);
+            ds.addWishListItem(this.props.product);
         }
 
     }
@@ -57,7 +57,7 @@ class Product extends Component {
                 <div className="clard-block">
                     <h4 className="car-title">{this.props.product.title}</h4>
                     <p className="card-text">Price: ${this.props.product.price}</p>
-                    <a href="" onClick={() => this.onButtonClicked()} className={btnClass}>{this.state.onWishList ? "Remove From Wishlist" : "Add to Cart"}</a>
+                    <a href="#" onClick={this.onButtonClicked} className={btnClass}>{this.state.onWishList ? "Remove From Wishlist" : "Add to Cart"}</a>
                 </div>
             </div>
         );

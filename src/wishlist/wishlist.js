@@ -7,9 +7,13 @@ import ProductCondensed from '../product-condensed/product-condensed';
 
 let ns = new NotificationService();
 
-class Wishlist extends Component {
+class WishList extends Component {
 
+    // esse props significa que eu estou puxando as propreidades do componente acima.
+    // No caso, WishList????
     constructor(props) {
+        // O super busca uma super implementação do parametro
+        // Ele vai ao React e volta para ter certeza que os parametros são realmente do Componente acima
         super(props);
 
         this.state = {wishList:[
@@ -28,15 +32,14 @@ class Wishlist extends Component {
             //     price:5.00,
             //     _id:"A10003"
             // }
-
-
         ]};
-        // Bind functions
-        this.createWishlist = this.createWishlist.bind(this);
 
+        // Bind functions
+        this.createWishList = this.createWishList.bind(this);
         this.onWishListChanged = this.onWishListChanged.bind(this);
     }
 
+    // Removendo e adicionando observers
     componentDidMount() {
         ns.addObserver(NOTIF_WISHLIST_CHANGED, this, this.onWishListChanged);
     }
@@ -49,7 +52,7 @@ class Wishlist extends Component {
         this.setState({wishList: newWishList});
     }
 
-    createWishlist = () => {
+    createWishList = () => {
         const list = this.state.wishList.map((product) =>
             <ProductCondensed product={ product } key={ product._id } />
         );
@@ -63,7 +66,7 @@ class Wishlist extends Component {
                 <div className="clard-block">
                     <h4 className="car-title">Wish List</h4>
                     <ul className="list-group">
-                        {this.createWishlist }
+                        {this.createWishList() }
                     </ul>
                 </div>
             </div>
@@ -71,4 +74,4 @@ class Wishlist extends Component {
     }
 }
 
-export default Wishlist;
+export default WishList;
